@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "status": "STAGE6_SINGLE_SEED_PILOT_COMPLETED",
+  "execution": "local_cpu_only",
+  "network_required": false,
+  "cloud_purchase_allowed": false,
+  "gpu_required": false,
+  "split_seed": "forestcheck-stage5-quarter-v1",
+  "split_manifest": "private://stage5/split-manifest.json",
+  "split_integrity_receipt": "private://stage5/receipt.json",
+  "holdout_evaluation_stage": 10,
+  "shared_inputs": {
+    "immutable_imports": "Same verified snapshots bound in the split manifest",
+    "feature_allowlist": "Must be frozen with meaning, unit and lineage before any fitting",
+    "labels": "Separate versioned sidecars; expert labels currently unavailable",
+    "cohort": "Freeze identical eligible UUID cohort for all four arms; report abstention"
+  },
+  "budget_per_arm_per_seed": {
+    "cpu_threads": 2,
+    "memory_mib": 4096,
+    "wall_seconds": 900,
+    "candidate_configurations": 12,
+    "group_cv_folds_if_required": 3,
+    "offline_only": true
+  },
+  "repeated_seeds": [1701, 1702, 1703],
+  "comparison_arms": [
+    {"id": "rules", "implementation": "AVAILABLE_PARTIAL", "metrics": "NOT_RUN"},
+    {"id": "rules_growth", "implementation": "BLOCKED_REFERENCE", "metrics": "NOT_RUN"},
+    {"id": "conditional_statistics", "implementation": "AVAILABLE_MEDIAN_MAD", "metrics": "OBSERVATION_RECONSTRUCTION_ONLY"},
+    {"id": "full_model", "implementation": "AVAILABLE_CATBOOST_AND_ISOLATION_FOREST", "metrics": "OBSERVATION_RECONSTRUCTION_ONLY"}
+  ],
+  "corruption_parameters": {
+    "train": {"seed": "corruption-train-v1", "decimal_factors": ["10", "100"]},
+    "tune": {"seed": "corruption-tune-v1", "decimal_factors": ["0.1"]},
+    "calibration": {"seed": "corruption-calibration-v1", "decimal_factors": ["0.01"]},
+    "holdout": {"status": "LOCKED_UNTIL_STAGE_10"}
+  },
+  "manual_review_budget": {"flagged": 40, "random_controls": 40, "expert": "NOT_ASSIGNED"},
+  "limitations": [
+    "Training supervisor enforces sampled process-tree RSS and wall time; no hard OS CPU/RAM quota",
+    "One fixed seed 1701 pilot; seeds 1702/1703 and four-arm expert comparison NOT_RUN",
+    "No biological ranges or real codebooks supplied by this configuration",
+    "Calibration cannot substitute for final holdout or choose features",
+    "Budget exhaustion must be recorded as an incomplete run, never a quality result"
+  ]
+}

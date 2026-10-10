@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "mapping_version": "ui-synthetic-1",
+  "source_format": "csv",
+  "encoding": "utf-8",
+  "delimiter": ";",
+  "table": "synthetic_ui",
+  "record_level": "stand",
+  "grain_basis": "Only independently created synthetic objects, not forestry methodology",
+  "columns": [
+    {
+      "position": 1,
+      "source_header": "Синтетический номер выдела",
+      "field": "stand",
+      "unit": null,
+      "transform": "text",
+      "basis": "Synthetic fixture declaration",
+      "key_role": "stand",
+      "missing_tokens": [
+        ""
+      ],
+      "not_applicable_tokens": []
+    },
+    {
+      "position": 2,
+      "source_header": "Запас на гектар, м³/га",
+      "field": "per",
+      "unit": "m3/ha",
+      "transform": "decimal_point",
+      "basis": "Synthetic fixture declaration",
+      "key_role": null,
+      "missing_tokens": [
+        ""
+      ],
+      "not_applicable_tokens": []
+    },
+    {
+      "position": 3,
+      "source_header": "Площадь синтетического объекта, га",
+      "field": "area",
+      "unit": "ha",
+      "transform": "decimal_point",
+      "basis": "Synthetic fixture declaration",
+      "key_role": null,
+      "missing_tokens": [
+        ""
+      ],
+      "not_applicable_tokens": []
+    },
+    {
+      "position": 4,
+      "source_header": "Общий запас древесины исследуемого синтетического объекта с длинным русским заголовком, м³",
+      "field": "total",
+      "unit": "m3",
+      "transform": "decimal_point",
+      "basis": "Synthetic fixture declaration",
+      "key_role": null,
+      "missing_tokens": [
+        ""
+      ],
+      "not_applicable_tokens": []
+    },
+    {
+      "position": 5,
+      "source_header": "Примечание",
+      "field": "note",
+      "unit": null,
+      "transform": "text",
+      "basis": "Synthetic fixture declaration",
+      "key_role": null,
+      "missing_tokens": [
+        ""
+      ],
+      "not_applicable_tokens": []
+    }
+  ],
+  "analysis_blockers": [],
+  "service_rows": [],
+  "exclude_empty_records": true
+}

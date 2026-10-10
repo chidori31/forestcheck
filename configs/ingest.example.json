@@ -1,0 +1,10 @@
+{
+  "source_dir": "<absolute local task6 source directory>",
+  "private_dir": "<absolute protected directory outside repository and source>",
+  "imports": [
+    {
+      "source_file": "synthetic.csv",
+      "mapping_file": "<absolute private mapping JSON path>"
+    }
+  ]
+}

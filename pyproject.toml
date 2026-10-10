@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "forestcheck"
+version = "0.1.0"
+description = "Local forestry data quality checks and observation models"
+requires-python = ">=3.13,<3.14"
+dependencies = ["fastapi>=0.143,<0.144", "pydantic>=2.13,<3", "uvicorn>=0.35,<1"]
+
+[project.optional-dependencies]
+analytics = ["pandas>=2.2,<4", "pyarrow>=20,<30"]
+ml = [
+    "catboost==1.2.10",
+    "psutil>=7,<8",
+    "scikit-learn==1.9.1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3,<10", "ruff>=0.11,<1", "httpx2>=2.13,<3"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend/src/forestcheck"]
+
+[tool.hatch.build.targets.sdist]
+include = ["backend/src/forestcheck", "pyproject.toml", "uv.lock", "README.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["backend/src"]
+addopts = "--basetemp=work/pytest"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+extend-exclude = ["work", "outputs"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+# Preserve existing import style in the standalone profiler and its original tests.
+"scripts/profile_local.py" = ["I"]
+"tests/test_profile_local.py" = ["I"]

@@ -1,0 +1,4 @@
+{
+  "source_dir": "<absolute local directory containing only approved task-6 sources>",
+  "private_dir": "<absolute private local directory outside the repository>"
+}

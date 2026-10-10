@@ -1,0 +1,15 @@
+CREATE TABLE application_schema (version INTEGER PRIMARY KEY, name TEXT NOT NULL);
+INSERT INTO application_schema VALUES (1, 'forestcheck-workflow');
+CREATE TABLE artifacts (id TEXT PRIMARY KEY, relative_path TEXT NOT NULL UNIQUE, sha256 TEXT NOT NULL, size_bytes INTEGER NOT NULL, media_type TEXT NOT NULL, created_at REAL NOT NULL);
+CREATE TABLE datasets (id TEXT PRIMARY KEY, name TEXT NOT NULL, source_artifact_id TEXT NOT NULL REFERENCES artifacts(id), source_sha256 TEXT NOT NULL, etag INTEGER NOT NULL DEFAULT 1, current_version_id TEXT, mapping_json TEXT, mapping_sha256 TEXT, state TEXT NOT NULL, created_at REAL NOT NULL, confirmed_by TEXT, confirmed_at REAL);
+CREATE TABLE versions (id TEXT PRIMARY KEY, dataset_id TEXT NOT NULL REFERENCES datasets(id), number INTEGER NOT NULL, domain_dataset_id TEXT NOT NULL, domain_revision INTEGER NOT NULL, artifact_id TEXT NOT NULL REFERENCES artifacts(id), snapshot_sha256 TEXT NOT NULL, mapping_sha256 TEXT NOT NULL, source_sha256 TEXT NOT NULL, parent_id TEXT REFERENCES versions(id), import_report_json TEXT NOT NULL, created_at REAL NOT NULL, UNIQUE(dataset_id, number));
+CREATE TABLE profiles (id TEXT PRIMARY KEY, name TEXT NOT NULL, content_json TEXT NOT NULL, sha256 TEXT NOT NULL, created_at REAL NOT NULL);
+CREATE TABLE jobs (id TEXT PRIMARY KEY, kind TEXT NOT NULL CHECK(kind IN ('import','analysis','version','export')), status TEXT NOT NULL CHECK(status IN ('queued','running','succeeded','failed','cancelled')), operator TEXT NOT NULL, request_json TEXT NOT NULL, request_sha256 TEXT NOT NULL, result_json TEXT, owner TEXT, lease_until REAL, attempts INTEGER NOT NULL DEFAULT 0, max_attempts INTEGER NOT NULL DEFAULT 2 CHECK(max_attempts BETWEEN 1 AND 3), cancel_requested INTEGER NOT NULL DEFAULT 0, error_code TEXT, created_at REAL NOT NULL, started_at REAL, finished_at REAL);
+CREATE INDEX jobs_queue ON jobs(status, created_at, id);
+CREATE TABLE findings (id TEXT PRIMARY KEY, analysis_id TEXT NOT NULL REFERENCES jobs(id), record_id TEXT NOT NULL, field_name TEXT, severity TEXT NOT NULL, priority INTEGER NOT NULL, signal_kind TEXT NOT NULL, content_json TEXT NOT NULL, review_version INTEGER NOT NULL DEFAULT 0);
+CREATE INDEX findings_page ON findings(analysis_id, priority, id);
+CREATE TABLE suggestions (id TEXT PRIMARY KEY, finding_id TEXT NOT NULL REFERENCES findings(id), analysis_id TEXT NOT NULL REFERENCES jobs(id), content_json TEXT NOT NULL);
+CREATE TABLE review_events (id TEXT PRIMARY KEY, finding_id TEXT NOT NULL REFERENCES findings(id), sequence INTEGER NOT NULL, operator TEXT NOT NULL, created_at REAL NOT NULL, content_json TEXT NOT NULL, UNIQUE(finding_id, sequence));
+CREATE TRIGGER review_no_update BEFORE UPDATE ON review_events BEGIN SELECT RAISE(ABORT, 'append_only'); END;
+CREATE TRIGGER review_no_delete BEFORE DELETE ON review_events BEGIN SELECT RAISE(ABORT, 'append_only'); END;
+CREATE TABLE idempotency (operator TEXT NOT NULL, scope TEXT NOT NULL, key_sha256 TEXT NOT NULL, request_sha256 TEXT NOT NULL, response_json TEXT NOT NULL, PRIMARY KEY(operator, scope, key_sha256));

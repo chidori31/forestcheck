@@ -1,0 +1,10 @@
+# Documentation example only; not loaded automatically. No real path or secret.
+contract_version = "1.0"
+[server]
+host = "127.0.0.1"
+port = 8000
+[storage]
+# Must be provided locally; empty means unconfigured, NEVER current directory.
+private_root = ""
+metadata_filename = "metadata.sqlite3"
+analytical_format = "parquet"

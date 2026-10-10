@@ -1,0 +1,30 @@
+# No Docker build is implemented; this limits any future build context.
+.git
+.venv
+**/__pycache__
+**/node_modules
+**/dist
+work
+outputs
+.env
+.env.*
+configs/local.*
+private
+data
+datasets
+reports
+**/*.sqlite*
+**/*.db*
+**/*.parquet
+**/*.arrow
+models
+**/*.cbm
+**/*.pkl
+**/*.pickle
+**/*.joblib
+**/*.pem
+**/*.key
+backups
+recovery
+# No container build is shipped. A future build must explicitly COPY only required code.
+.bootstrap
