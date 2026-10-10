@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "release": "ForestCheck-engineering-2026-10-10",
   "verdict": "TECHNICAL_CHECKS_PASS_DOMAIN_PARTIAL",
-  "source_code_manifest_sha256": "417fbc6fd364ade8c752972b756b78a2aa42f3d5dd81a663d022095f73f547e5",
+  "source_code_manifest_sha256": "ebacf0641c94fe03ac8d52fbf3196ac6aa13164752be7420159daa1c4107eb5c",
   "platform": {
     "python": "3.13.0",
     "os": "Windows",
