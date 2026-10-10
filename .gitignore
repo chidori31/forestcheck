@@ -56,6 +56,19 @@ recovery/
 !frontend/public/demo/synthetic.csv
 *.log
 *.tmp
+*.sqlite-*
+*.jsonl
+*.ndjson
+*.xlsb
+*.ods
+*.npy
+*.npz
+*.onnx
+*.pt
+*.pth
+*.h5
+*.p12
+*.pfx
 # Historical local research documents require a separate publication review.
 docs/STATE.md
 docs/data_contract.md
@@ -68,3 +81,11 @@ docs/open_questions.md
 docs/requirements_coverage.md
 docs/evaluation_protocol.md
 docs/ml_methodology.md
+# Push only reviewed public-safe documentation. Local history remains on disk.
+/docs/*
+!/docs/recovery.md
+!/docs/openapi.json
+!/docs/expert_clarifications.md
+!/docs/xlsx_import.md
+!/docs/interim_demo.md
+!/docs/engineering_status.md

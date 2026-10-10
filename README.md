@@ -7,6 +7,12 @@
 Нельзя представлять эту сборку как полностью выполненную предметную задачу.
 Подробности: [release_notes.md](release_notes.md), [восстановление](docs/recovery.md).
 
+Инженерное дополнение 10.10.2026: [структурированный XLSX-импорт](docs/xlsx_import.md)
+работает отдельной локальной командой; API/UI по-прежнему принимает CSV.
+[Сценарий защиты и резерв](docs/interim_demo.md),
+[ожидаемые пояснения экспертов](docs/expert_clarifications.md),
+[свежие проверки и границы](docs/engineering_status.md).
+
 Проверяемая среда: Windows 11, PowerShell, Python 3.13.0, Node 24.18.0,
 npm 11.16.0, uv 0.12.24. WSL/Linux/macOS и Docker-сборка не проверены.
 Docker CLI доступен, но Docker Desktop engine на машине проверки не запущен.

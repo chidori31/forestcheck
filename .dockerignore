@@ -28,3 +28,26 @@ backups
 recovery
 # No container build is shipped. A future build must explicitly COPY only required code.
 .bootstrap
+**/*.xlsx
+**/*.xls
+**/*.xlsm
+**/*.zip
+**/*.7z
+**/*.pdf
+**/*.docx
+**/*.csv
+!frontend/public/demo/synthetic.csv
+**/*.log
+**/*.tmp
+**/*.jsonl
+**/*.ndjson
+**/*.xlsb
+**/*.ods
+**/*.npy
+**/*.npz
+**/*.onnx
+**/*.pt
+**/*.pth
+**/*.h5
+**/*.p12
+**/*.pfx

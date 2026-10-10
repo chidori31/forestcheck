@@ -1,66 +1,44 @@
 {
   "schema_version": "1.0",
-  "release": "ForestCheck-stage11-code-demo",
-  "verdict": "TECHNICAL_HANDOFF_PASS_DOMAIN_PARTIAL",
+  "release": "ForestCheck-engineering-2026-10-10",
+  "verdict": "TECHNICAL_CHECKS_PASS_DOMAIN_PARTIAL",
+  "source_code_manifest_sha256": "417fbc6fd364ade8c752972b756b78a2aa42f3d5dd81a663d022095f73f547e5",
   "platform": {
-    "os": "Windows-11-10.0.26300-SP0",
     "python": "3.13.0",
-    "node": "24.18.0",
-    "npm": "11.16.0",
-    "uv": "0.12.24"
-  },
-  "clean_install": {
-    "python": "48 locked packages",
-    "npm": "186 installed packages; package-lock; ignore-scripts"
+    "os": "Windows",
+    "shell": "PowerShell"
   },
   "checks": {
-    "pytest_passed": 559,
+    "pytest_passed": 578,
     "pytest_subtests_passed": 6,
     "pytest_failed": 0,
     "pytest_skipped": 0,
+    "pytest_seconds": 49.93,
     "ruff": "PASS",
-    "frontend_build_typecheck": "PASS",
+    "frontend_tests": 13,
+    "frontend_test_seconds": 1.77,
     "frontend_lint": "PASS",
-    "component_tests_passed": 13,
-    "browser_tests_passed": 3,
-    "built_static_UI_offline_flow": "PASS",
-    "demo_launcher": "PASS",
-    "real_launcher": "PASS",
-    "missing_real_config_no_fallback": "PASS",
-    "source_documents_not_served": "PASS",
-    "synthetic_WAL_recovery": "PASS",
-    "real_same_host_history_export_recovery": "PASS",
-    "external_python_network_guard_tests_passed": 7
+    "frontend_format": "PASS",
+    "frontend_build_typecheck": "PASS",
+    "e2e_passed": 3,
+    "e2e_failed": 0,
+    "e2e_skipped": 0,
+    "e2e_seconds": 16.7
   },
-  "synthetic_benchmark": {
-    "tests_passed": 8,
-    "wall_seconds": 8.896536700005527,
-    "peak_process_tree_rss_bytes": 147390464,
-    "scope": "small synthetic workflow/recovery fixtures including pytest setup; not a large-data throughput benchmark",
-    "cpu_threads": 2,
-    "wall_budget_seconds": 900,
-    "memory_budget_mib": 4096
+  "real_checks": {
+    "xlsx_import": "PASS_LOCAL_PRIVATE_REPORT",
+    "source_integrity": "PASS",
+    "split_model_hashes": "PASS",
+    "trusted_native_model_load": "PASS",
+    "new_training": "NOT_RUN",
+    "new_holdout_evaluation": "NOT_RUN",
+    "expert_metrics": "NOT_RUN"
   },
-  "not_run": {
-    "docker": "CLI present; Docker Desktop Linux engine pipe missing",
-    "WSL_Linux_macOS": "NOT_RUN",
-    "cross_host_model_path_relocation": "NOT_IMPLEMENTED",
-    "full_offline_install": "NOT_PROVIDED",
-    "official_closed_submission": "RULES_UNCONFIRMED"
-  },
-  "domain_blockers": [
-    "applicable_real_growth_table",
-    "complete_codebooks_and_semantics",
-    "independent_expert_labels",
-    "official_submission_format"
-  ],
-  "models_retrained": false,
-  "holdout_rerun": false,
-  "private_data_in_package": false,
-  "lock_sha256": {
-    "uv.lock": "ef6970dcf9d011f866041b04f74e644c53a29642eb8f143d6d51271dcaf889e6",
-    "frontend/package-lock.json": "9243570c0f8a1c908e6fe66140c896e04fc51a4822c4adb9f399fc2546a0529a"
-  },
-  "clean_start_defect_fixed": "release tests now creates work/ before pytest; regression RED then GREEN",
-  "private_receipt": "private://stage11/latest-run.json"
+  "limitations": [
+    "XLSX CLI only; API/UI upload remains CSV",
+    "No admitted real growth reference",
+    "No independent expert labels",
+    "No automatic duplicate exclusion",
+    "Historical private research documents deliberately not in Git"
+  ]
 }

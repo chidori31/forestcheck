@@ -1,0 +1,247 @@
+{
+  "schema_version": "1.0",
+  "mapping_version": "invented-workbook-v1",
+  "source_format": "xlsx",
+  "sheets": [
+    {
+      "name": "plots",
+      "record_level": "plots",
+      "grain_basis": "Synthetic test definition",
+      "parent_sheet": null,
+      "link_scope": "composite",
+      "link_positions": [
+        1,
+        2,
+        3
+      ],
+      "columns": [
+        {
+          "position": 1,
+          "source_header": "region",
+          "field": "column_0001",
+          "unit": null,
+          "transform": "text",
+          "basis": "Synthetic test definition",
+          "key_role": "territory",
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 2,
+          "source_header": "block",
+          "field": "column_0002",
+          "unit": null,
+          "transform": "text",
+          "basis": "Synthetic test definition",
+          "key_role": "compartment",
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 3,
+          "source_header": "plot",
+          "field": "column_0003",
+          "unit": null,
+          "transform": "text",
+          "basis": "Synthetic test definition",
+          "key_role": "stand",
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 4,
+          "source_header": "height",
+          "field": "column_0004",
+          "unit": "m",
+          "transform": "decimal_point",
+          "basis": "Synthetic test definition",
+          "key_role": null,
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 5,
+          "source_header": "height",
+          "field": "column_0005",
+          "unit": "m",
+          "transform": "decimal_point",
+          "basis": "Synthetic test definition",
+          "key_role": null,
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        }
+      ],
+      "analysis_blockers": []
+    },
+    {
+      "name": "layers",
+      "record_level": "layers",
+      "grain_basis": "Synthetic test definition",
+      "parent_sheet": "plots",
+      "link_scope": "composite",
+      "link_positions": [
+        1,
+        2,
+        3
+      ],
+      "columns": [
+        {
+          "position": 1,
+          "source_header": "region",
+          "field": "column_0001",
+          "unit": null,
+          "transform": "text",
+          "basis": "Synthetic test definition",
+          "key_role": "territory",
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 2,
+          "source_header": "block",
+          "field": "column_0002",
+          "unit": null,
+          "transform": "text",
+          "basis": "Synthetic test definition",
+          "key_role": "compartment",
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 3,
+          "source_header": "plot",
+          "field": "column_0003",
+          "unit": null,
+          "transform": "text",
+          "basis": "Synthetic test definition",
+          "key_role": "stand",
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 4,
+          "source_header": "height",
+          "field": "column_0004",
+          "unit": "m",
+          "transform": "decimal_point",
+          "basis": "Synthetic test definition",
+          "key_role": null,
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 5,
+          "source_header": "height",
+          "field": "column_0005",
+          "unit": "m",
+          "transform": "decimal_point",
+          "basis": "Synthetic test definition",
+          "key_role": null,
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        }
+      ],
+      "analysis_blockers": []
+    },
+    {
+      "name": "regeneration",
+      "record_level": "regeneration",
+      "grain_basis": "Synthetic test definition",
+      "parent_sheet": "plots",
+      "link_scope": "composite",
+      "link_positions": [
+        1,
+        2,
+        3
+      ],
+      "columns": [
+        {
+          "position": 1,
+          "source_header": "region",
+          "field": "column_0001",
+          "unit": null,
+          "transform": "text",
+          "basis": "Synthetic test definition",
+          "key_role": "territory",
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 2,
+          "source_header": "block",
+          "field": "column_0002",
+          "unit": null,
+          "transform": "text",
+          "basis": "Synthetic test definition",
+          "key_role": "compartment",
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 3,
+          "source_header": "plot",
+          "field": "column_0003",
+          "unit": null,
+          "transform": "text",
+          "basis": "Synthetic test definition",
+          "key_role": "stand",
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 4,
+          "source_header": "height",
+          "field": "column_0004",
+          "unit": "m",
+          "transform": "decimal_point",
+          "basis": "Synthetic test definition",
+          "key_role": null,
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        },
+        {
+          "position": 5,
+          "source_header": "height",
+          "field": "column_0005",
+          "unit": "m",
+          "transform": "decimal_point",
+          "basis": "Synthetic test definition",
+          "key_role": null,
+          "missing_tokens": [
+            ""
+          ],
+          "not_applicable_tokens": []
+        }
+      ],
+      "analysis_blockers": []
+    }
+  ]
+}

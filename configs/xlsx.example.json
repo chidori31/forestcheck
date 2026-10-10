@@ -1,0 +1,10 @@
+{
+  "source_dir": "C:/EXAMPLE_INPUT",
+  "private_dir": "C:/EXAMPLE_PRIVATE",
+  "imports": [
+    {
+      "source_file": "synthetic.xlsx",
+      "mapping_file": "C:/EXAMPLE_PRIVATE/mapping.json"
+    }
+  ]
+}
