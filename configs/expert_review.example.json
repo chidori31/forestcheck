@@ -1,0 +1,10 @@
+{
+  "private_dir": "X:/ForestCheckLocal",
+  "snapshot_dir": "X:/ForestCheckLocal/xlsx_snapshots/workbook_imports/REPLACE_SNAPSHOT_ID",
+  "scope_file": "X:/ForestCheckLocal/expert/scope.json",
+  "split_file": "X:/ForestCheckLocal/stage5/split-manifest.json",
+  "cohort_file": "X:/ForestCheckLocal/expert/cohort.json",
+  "hierarchy_binding_file": "X:/ForestCheckLocal/expert/hierarchy_binding.json",
+  "policy_file": "X:/ForestCheckLocal/expert/policy.json",
+  "height_mapping_file": "X:/ForestCheckLocal/expert/height_mapping.json"
+}
